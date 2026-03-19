@@ -36,7 +36,12 @@ const ContactForm = forwardRef<HTMLElement>((_, ref) => {
   const [validationError, setValidationError] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    const formatted =
+      name === 'sueldoActual'
+        ? value === '' ? '' : '$' + value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+        : value
+    setForm((prev) => ({ ...prev, [name]: formatted }))
     setValidationError(null)
   }
 
@@ -52,8 +57,7 @@ const ContactForm = forwardRef<HTMLElement>((_, ref) => {
     setStatus('loading')
 
     try {
-      const url = import.meta.env.VITE_APPS_SCRIPT_URL as string
-      await fetch(url, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -63,11 +67,8 @@ const ContactForm = forwardRef<HTMLElement>((_, ref) => {
           sueldoActual: form.sueldoActual,
           mensaje:      form.mensaje,
         }),
-        // Google Apps Script requiere mode no-cors cuando el script
-        // no devuelve cabeceras CORS. Ajusta si configuras CORS en el script.
-        mode: 'no-cors',
       })
-      // Con no-cors no podemos leer la respuesta, asumimos éxito si no lanzó.
+      if (!res.ok) throw new Error('Server error')
       setStatus('success')
       setForm(INITIAL)
     } catch {
