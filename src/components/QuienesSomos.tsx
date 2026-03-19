@@ -1,4 +1,5 @@
 import { quienesSomos } from '../content'
+import ScrollReveal from './ScrollReveal'
 
 export default function QuienesSomos() {
   return (
@@ -7,17 +8,21 @@ export default function QuienesSomos() {
         <div className="flex flex-col items-center gap-8 sm:gap-12 lg:flex-row lg:items-center lg:gap-16">
 
           {/* Photo placeholder — left on desktop */}
-          <div className="w-full max-w-[180px] shrink-0 sm:max-w-xs lg:max-w-sm">
+          <ScrollReveal direction="left" className="w-full max-w-[180px] shrink-0 sm:max-w-xs lg:max-w-sm">
             <div
-              className="flex aspect-square w-full items-center justify-center rounded-2xl bg-[#F1F3F5] text-sm text-text-muted shadow-sm"
+              className="relative flex aspect-square w-full items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 via-blue-50 to-white shadow-lg overflow-hidden"
               aria-label={quienesSomos.imageAlt}
             >
-              <span className="px-6 text-center font-medium">{quienesSomos.imagePlaceholder}</span>
+              <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-primary/10" />
+              <div className="absolute -top-3 -left-3 h-16 w-16 rounded-full bg-primary/5" />
+              <span className="relative z-10 px-6 text-center font-medium text-primary/60">
+                {quienesSomos.imagePlaceholder}
+              </span>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Text — right on desktop */}
-          <div className="flex-1 text-center lg:text-left">
+          <ScrollReveal direction="right" className="flex-1 text-center lg:text-left">
             <span className="mb-3 inline-block rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-primary">
               {quienesSomos.badge}
             </span>
@@ -31,7 +36,7 @@ export default function QuienesSomos() {
                 </p>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>
