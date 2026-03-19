@@ -21,12 +21,12 @@ export default function Hero() {
               {hero.badge}
             </span>
 
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-text sm:text-5xl md:text-6xl">
+            <h1 className="text-2xl font-extrabold leading-tight tracking-tight text-text sm:text-4xl md:text-5xl lg:text-6xl">
               {hero.title}{' '}
               <span className="text-primary">{hero.titleHighlight}</span>
             </h1>
 
-            <p className="mt-5 text-lg leading-relaxed text-text-muted">
+            <p className="mt-5 text-base leading-relaxed text-text-muted sm:text-lg">
               {hero.subtitle}
             </p>
 
@@ -53,7 +53,7 @@ export default function Hero() {
           </div>
 
           {/* Image placeholder */}
-          <div className="w-full flex-1 lg:max-w-lg">
+          <div className="hidden w-full flex-1 sm:block lg:max-w-lg">
             <div
               className="flex aspect-video w-full items-center justify-center rounded-2xl bg-[#F1F3F5] text-sm text-text-muted shadow-sm"
               aria-label={hero.imagePlaceholder}

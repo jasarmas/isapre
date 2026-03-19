@@ -121,11 +121,11 @@ export const footer = {
   ],
   social: {
     instagram: {
-      href: "https://instagram.com/placeholder",
+      href: "https://instagram.com/carloszerpa_tuasesor",
       label: "Instagram",
     },
     whatsapp: {
-      href: "https://wa.me/56900000000",
+      href: "https://wa.me/56981735631",
       label: "WhatsApp",
     },
   },
@@ -133,7 +133,7 @@ export const footer = {
 };
 
 export const whatsappButton = {
-  href: "https://wa.me/56900000000",
+  href: "https://wa.me/56981735631",
   tooltip: "¡Escríbenos!",
   ariaLabel: "Contáctanos por WhatsApp",
 };

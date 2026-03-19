@@ -40,11 +40,11 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-text;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-text;
   }
 
   .section-subtitle {
-    @apply text-lg text-text-muted mt-3 max-w-2xl;
+    @apply text-base sm:text-lg text-text-muted mt-3 max-w-2xl;
   }
 
   .card {
