@@ -16,8 +16,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-white transition-all duration-200 ${
-        scrolled ? 'shadow-navbar' : 'border-b border-border'
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/80 backdrop-blur-lg shadow-navbar'
+          : 'bg-white border-b border-border'
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -60,7 +62,9 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-border bg-white px-4 pb-5 pt-3 md:hidden">
+        <div className={`border-t border-border px-4 pb-5 pt-3 md:hidden ${
+          scrolled ? 'bg-white/90 backdrop-blur-md' : 'bg-white'
+        }`}>
           <ul className="flex flex-col gap-1">
             {navbar.links.map((link) => (
               <li key={link.href}>

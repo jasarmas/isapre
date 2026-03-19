@@ -19,7 +19,10 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#111827] text-white">
+    <footer className="relative bg-[#111827] text-white">
+      {/* Gradient accent line */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between">
 
